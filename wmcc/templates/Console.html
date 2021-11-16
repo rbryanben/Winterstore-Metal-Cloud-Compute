@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Winterstore MCC | Console</title>
+    <!-- favicon -->
+
+    <!-- reference your installed Font Awesome Free package's files here -->
+    <link href="/static/fontawesome-free-5.15.3-web/css/all.min.css" rel="stylesheet" type="text/css">
+    <!-- console styling -->
+    <link rel="stylesheet" href="/static/css/console.css">
+    <!-- Vue -->
+    <script src="/static/Vue/vue.js"></script>
+    <!-- Repository-->
+    <script src="/static/js/Repo.js"></script>
+</head>
+<body>
+    <!-- Components -->
+    {% include 'Components/Instance.html' %}
+    {% include 'Components/Nav.html' %}
+    {% include 'Components/Selector.html' %}
+    {% include 'Components/CreateInstance.html' %}
+    {% include 'Components/Loader.html' %}
+
+    <!-- Application -->
+    <div id="application">
+        <!-- Loader -->
+        <loader></loader>
+
+        <!-- Navbar -->
+        <nav-component v-on:create_instance="showCreateInstance = true"></nav-component>
+        <!-- Layout -->
+        <div class="layout">
+            <!-- Instance -->
+            <div class="instances-panel">
+                <!-- Selector -->
+                <selector></selector>
+
+                <!-- Categories -->
+                <div class="instance-categories">
+                    <div>Instance</div>
+                    <div>Type</div>
+                    <div>Internal IPv4</div>
+                    <div>Status</div>
+                </div>
+
+                <!-- Instances -->
+                <span class="instances-list" style="overflow-y: scroll;">
+                    <instance v-for="instance in instances" v-bind:instance="instance"></instance>
+                </span>
+            </div>
+            <!-- Instance Information Panel -->
+            <div class="instance-information">
+                <div class="header div-flex center">
+                     We Are Still Moving In
+                </div>
+                <div class="div-flex center">
+                    <img src="/static/img/undraw_floating_re_xtcj.svg">
+                </div>
+            </div>
+        </div>
+        <!-- Modals -->
+        <create-instance v-bind:show="showCreateInstance" v-on:hide_modal="showCreateInstance = false" v-on:created_instance="updateInstances"></create-instance>
+    </div>
+</body>
+<!-- Script -->
+<script src="/static/js/Console.js"></script>
+</html>

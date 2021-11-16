@@ -1,0 +1,144 @@
+/* Variables */
+
+/* Body */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(65, 65, 65);
+    padding: 0;
+    margin: 0;
+    overflow-y: hidden;
+}
+
+.layout {
+    margin-top: 70px;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+
+.layout > div {
+    height: 100vh;
+}
+
+.instances-panel {
+    padding-left: 20px ;
+    padding-right:20px;
+    padding-top: 40px;
+    background-color: rgba(240, 239, 239, 0.486);
+}
+
+.instance-categories {
+    display: grid;
+    margin-top: 20px;
+    opacity: 0.5;
+    border-bottom: solid 0.5px lightgray;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    grid-template-columns: 3fr 2fr 2fr 2fr;
+}
+
+.instances-list {
+    padding-top: 10px;
+}
+
+.instance-information {
+    margin-top: 40px;
+    padding-top: 10%;
+    opacity: 0.5;
+}
+
+.instance-information img {
+    margin-top: 60px;
+    height: 200px;
+}
+
+/* Buttons */
+.button {
+    padding: 10px 20px;
+    background-color: white;
+    cursor: pointer;
+}
+
+/* Layouts */
+.div-flex {
+    display: flex;
+    align-items: center;
+}
+
+.div-flex.start {
+    justify-content: start;
+}
+
+.div-flex.center {
+    justify-content: center;
+}
+
+.div-flex.end {
+    justify-content: flex-end;
+}
+
+/* Inputs */
+.mopane-input {
+    margin-top: 20px;
+}
+
+.mopane-input .header {
+    font-size: small;
+}
+
+.mopane-input input,select {
+    height: 50px;
+    width: 280px;
+    outline: none;
+    border:none;
+    margin-top: 5px;
+    padding-left: 20px;
+    background-color: rgba(224, 224, 224, 0.788);
+    border-radius: 6px;
+    font-size: small;
+}
+
+.mopane-input select {
+    width: 300px;
+}
+
+
+.create-button {
+    background: #8594E3;
+    height: 50px;
+    color: white;
+    font-size: small;
+    width: 120px;
+    border-radius: 6px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+}
+
+.create-button:hover{
+    opacity: 0.9;
+}
+/* Modal */
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: white;
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: all 0.1s ease-in-out;
+    display: none;
+}
+
+.modal.show {
+    display: block;
+}
+
+.modal .fas {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    color: gray;
+    cursor: pointer;
+}

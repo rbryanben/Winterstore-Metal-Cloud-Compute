@@ -1,0 +1,29 @@
+<!-- style -->
+<style>
+    .selector {
+        padding: 10px 20px;
+        background-color: white;
+        cursor: pointer;
+        outline: none;
+        border: 1px solid #ccc;
+    }
+</style>
+
+<!-- Template -->
+<template id="selectorTemplate">
+    <div>
+        <select class="selector">
+            <option>N1 Sahara</option>
+            <option>E1 Kalahari</option>
+            <option>C4 Namib</option>
+        </select>
+    </div>
+</template>
+
+<!-- Script -->
+<script>
+    Vue.component("selector",{
+        template : "#selectorTemplate",
+    })
+</script>
+

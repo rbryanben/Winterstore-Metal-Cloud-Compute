@@ -1,0 +1,51 @@
+<!-- Style -->
+<style>
+    .loader {
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 5px;
+        z-index: 101;
+        background-color: rgba(33, 172, 130, 0.774);
+        width: 100vw;
+        animation: loading 2s ease-in-out ;
+        display: none;
+        transform: scaleX(0);
+    }
+
+    .loader.loading {
+        display: block;
+    }
+
+    @keyframes loading {
+        0% {
+            transform-origin: left;
+            transform: scaleX(0);
+        }
+        50% {
+            transform-origin: left;
+            transform: scaleX(1);
+        }
+        51% {
+            transform-origin: right;
+            transform: scaleX(1);
+        }
+        100% {
+            transform-origin: right;
+            transform: scaleX(0);
+        }
+    }
+</style>
+
+<!-- Template -->
+<template id="loaderTemplate">
+    <div class="loader loading">
+    </div>
+</template>
+
+<!-- Script -->
+<script>
+    Vue.component("loader",{
+        template : "#loaderTemplate",
+    })
+</script>

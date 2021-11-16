@@ -1,0 +1,79 @@
+<!-- Template -->
+<template id="createInstanceTemplate">
+    <div class="modal" v-bind:class="{ show : getState }">
+        <!-- Close -->
+        <i class="fas fa-times" v-on:click="$emit('hide_modal')" ></i>
+
+        <!-- Instance Name -->
+        <div class="mopane-input">
+            <div class="header">Instance Name </div>
+            <input id="instanceName" placeholder="Identifier">
+        </div>
+
+        <!-- Instance Type -->
+        <div class="mopane-input">
+            <div class="header">Instance Type</div>
+            <input placeholder="E1-Kalahari (Static)" disabled>
+        </div>
+
+        <!-- Instance Type -->
+        <div class="mopane-input">
+            <div class="header">Disk Size</div>
+            <input placeholder="10GB SSD (Static)" disabled>
+        </div>
+
+        <!-- Instance Type -->
+        <div class="mopane-input">
+            <div class="header">Boot Disk</div>
+            <select>
+                <option>Ubuntu Server LTS 20.10</option>
+            </select>
+        </div>
+
+        <!-- Create Button -->
+        <div id="createButton" class="create-button div-flex center" v-on:click="createInstance">
+            Create Instance
+        </div>
+    </div>
+</template>
+
+<!-- Script -->
+<script>
+    Vue.component("create-instance",{
+        template : "#createInstanceTemplate",
+        props: ['show'],
+        methods: {
+            createInstance : function(){
+                //check if server name is not empty
+                if (document.getElementById("instanceName").value == ""){
+                    document.getElementById("instanceName").focus()
+                    return
+                }
+
+                //disable the create instance button and set an opacity of 0.5
+                var createButton = document.getElementById("createButton")
+                createButton.style.opacity = 0.5 ;
+                createButton.style.pointerEvents = "none"
+
+                //context
+                var context = this
+
+                //create instance
+                createServer(document.getElementById("instanceName").value,function(){
+                    createButton.style.opacity = 1 ;
+                    createButton.style.pointerEvents = "all"
+                    //emit new instance
+                    context.$emit('created_instance')
+                    //alert created instance
+                    alert("Instance Created")
+                })
+            }
+        },
+        computed: {
+            getState : function(){
+                return this.show;
+            }
+        }
+    })
+</script>
+

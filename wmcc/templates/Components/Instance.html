@@ -1,0 +1,65 @@
+<!-- style -->
+<style>
+    .instance {
+        display: grid;
+        grid-template-columns: 3fr 2fr 2fr 2fr;
+        height: 60px;
+        border-bottom: solid 0.5px lightgray;
+        cursor: pointer;
+        padding-left: 20px;
+        transition: all 0.1s ease-in-out;
+    }
+
+    .instance:hover{
+        background-color: rgba(71, 194, 147, 0.178);
+    }
+
+    .instance .status {
+        height: 15px;
+        width: 15px;
+        border-radius: 50%;
+        margin-right: 4px;
+        background-color: rgba(3, 145, 3, 0.308);
+    }
+
+    .instance .status.updating {
+        background-color: rgba(145, 124, 3, 0.308);
+    }
+
+</style>
+
+<!-- Template -->
+<template id="instanceTemplate">
+    <div class="instance">
+        <!-- Name -->
+        <div class="div-flex start">
+            [[instance.instance_name]]
+        </div>
+        <!-- Type -->
+        <div class="div-flex start">
+            [[instance.type]]
+        </div>
+        <!-- Internal IP -->
+        <div class="div-flex start">
+            [[instance.ip]]
+        </div>
+        <!-- Status -->
+        <div v-if="instance.booted" class="div-flex start">
+            <span class="status"></span>Running
+        </div>
+        <div v-else class="div-flex start">
+            <span class="status updating"></span>Booting
+        </div>
+
+    </div>
+</template>
+
+<!-- Script -->
+<script>
+    Vue.component("instance",{
+        delimiters : ['[[',']]'],
+        template : "#instanceTemplate",
+        props: ['instance']
+    })
+</script>
+
