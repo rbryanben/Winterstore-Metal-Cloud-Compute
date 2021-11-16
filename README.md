@@ -7,3 +7,5 @@ They use Type 1 hypervisors like Xen Hypervisor-Citrix Project to give bare meta
 , and our first stop is a MaaS platform that is based on a Type 2 hypervisor (VirtualBox) just to get the concept straight.
 
 # Lets See It Work!
+https://user-images.githubusercontent.com/63599157/142004581-757f4706-1920-4b0e-bfb0-baf30841175f.mp4
+
