@@ -1,5 +1,5 @@
 # Winterstore-Metal-Cloud-Compute
-Metal as a Service that allows user to rent virtual computers on which to run their own computer applications. Based on a Type 2 Hypervisor on the road to Type 1 Bare Metal
+Metal as a Service that allows users to rent virtual computers on which to run their own computer applications. Based on a Type 2 Hypervisor on the road to Type 1 Bare Metal
 
 # Road To Bare Metal
 Popular MaaS providers like AWS and Google Cloud do not use a type 2 hypervisor to run guest operating systems. 
